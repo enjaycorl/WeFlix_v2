@@ -12,11 +12,18 @@ export default {
           800: '#1f1f1f', // Slightly lighter for surfaces
           700: '#2d2d2d', // For borders or hover states
           600: '#404040', // For secondary text or icons
-          // You might want to define 500, 400, 300 etc. for text, lighter elements
-          // e.g., 300: '#d1d5db' // Light gray text
-        }
-        // Consider adding your primary/accent color here too
-        // E.g., blue: { 600: '#2563eb', ... }
+        },
+        // PirTV brand palette — deep plum-black canvas + warm amber accent
+        ink: {
+          DEFAULT: '#0B0710', // app background
+          soft: '#140C1E',    // raised surface
+          line: '#241A33',    // hairline borders
+        },
+        amber: {
+          400: '#FFA95C',
+          500: '#F5913A', // primary accent (CTA, active nav, progress)
+          600: '#E07A22',
+        },
       },
       aspectRatio: {
         '16/7': '16 / 7', // Custom aspect ratio

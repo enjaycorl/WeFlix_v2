@@ -26,7 +26,28 @@
 
 
 html, body {
-  background-color: black;
+  background-color: #0B0710; /* PirTV ink */
+}
+
+/* Landing hero poster wall drift */
+@keyframes drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[drift_40s_linear_infinite\] {
+    animation: none;
+  }
+}
+
+/* Hide scrollbars on horizontal rails */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 #root {

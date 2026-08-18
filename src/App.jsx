@@ -13,11 +13,20 @@ import ResetPasswordPage from './pages/Home/ResetPasswordPage';
 import EmailVerificationPage from './pages/Home/EmailVerificationPage';
 import PersonPage from './pages/Home/Person/PersonPage';
 import AuthActionPage from './pages/Home/AuthActionPage';
+import LandingPage from './pages/Home/Landing/LandingPage';
+import AboutPage from './pages/Home/About/AboutPage';
+import LegalPage from './pages/Home/About/LegalPage';
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Full-screen pages rendered outside the app chrome */}
+        <Route path="/welcome" element={<LandingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/privacy" element={<LegalPage kind="privacy" />} />
+        <Route path="/terms" element={<LegalPage kind="terms" />} />
+
         <Route element={<ParentComponent />}>
           <Route index element={<HomePage />} />
           <Route path="/movies" element={<Movie />} />

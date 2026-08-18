@@ -294,6 +294,75 @@ export const fetchRelatedSeries = async (tvId) => {
 };
 
 /**
+ * Fetch official trailers/teasers/clips hosted on YouTube for a title.
+ * These are publisher-uploaded promotional videos and are free to embed.
+ * @param {'movie'|'tv'} type
+ * @param {number} id - TMDB id
+ * @returns {Promise<Array>} ordered list of YouTube videos (trailers first)
+ */
+export const fetchVideos = async (type, id) => {
+  try {
+    const url = new URL(`${BASE_URL}/${type}/${id}/videos`);
+    url.searchParams.append('api_key', API_KEY);
+    url.searchParams.append('language', 'en-US');
+
+    const response = await fetch(url);
+    if (!response.ok) return [];
+
+    const data = await response.json();
+    const rank = { Trailer: 0, Teaser: 1, Clip: 2, Featurette: 3, 'Behind the Scenes': 4 };
+
+    return (data.results ?? [])
+      .filter((v) => v.site === 'YouTube' && v.key)
+      .sort((a, b) => {
+        // Official trailers first, then by type, then newest.
+        if (a.official !== b.official) return a.official ? -1 : 1;
+        const ra = rank[a.type] ?? 9;
+        const rb = rank[b.type] ?? 9;
+        if (ra !== rb) return ra - rb;
+        return new Date(b.published_at ?? 0) - new Date(a.published_at ?? 0);
+      });
+  } catch (error) {
+    console.warn(`Videos fetch failed: ${error.message}`);
+    return [];
+  }
+};
+
+/**
+ * Fetch legal "where to watch" providers for a title, scoped to a region.
+ * Data is supplied by JustWatch via TMDB. Defaults to the Philippines.
+ * @param {'movie'|'tv'} type
+ * @param {number} id - TMDB id
+ * @param {string} region - ISO 3166-1 country code
+ */
+export const fetchWatchProviders = async (type, id, region = 'PH') => {
+  try {
+    const url = new URL(`${BASE_URL}/${type}/${id}/watch/providers`);
+    url.searchParams.append('api_key', API_KEY);
+
+    const response = await fetch(url);
+    if (!response.ok) return null;
+
+    const data = await response.json();
+    const forRegion = data.results?.[region] ?? data.results?.US ?? null;
+    if (!forRegion) return null;
+
+    return {
+      region: data.results?.[region] ? region : 'US',
+      link: forRegion.link ?? null,
+      stream: forRegion.flatrate ?? [],
+      rent: forRegion.rent ?? [],
+      buy: forRegion.buy ?? [],
+      free: forRegion.free ?? [],
+      ads: forRegion.ads ?? [],
+    };
+  } catch (error) {
+    console.warn(`Watch providers fetch failed: ${error.message}`);
+    return null;
+  }
+};
+
+/**
  * Fetch actor/crew details and combined credits.
  * @param {number} personId - The ID of the person
  */

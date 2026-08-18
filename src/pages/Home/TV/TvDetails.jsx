@@ -602,19 +602,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
           <div className="absolute -inset-1 bg-gradient-to-r from-red-600/30 to-blue-600/30 blur-2xl opacity-50 z-0 rounded-2xl md:rounded-[2rem]"></div>
           
           <div className="relative z-10 bg-[#0f1117]/80 backdrop-blur-xl border border-white/5 rounded-2xl md:rounded-[2rem] p-2 md:p-4 shadow-2xl ring-1 ring-white/5">
-            {playingSeason !== null && playingEpisode !== null ? (
-              <MemoizedVideoPlayer
-                tvId={tvId}
-                season={playingSeason}
-                episode={playingEpisode}
-                title={tv.name}
-                key={`${tvId}-${playingSeason}-${playingEpisode}`}
-              />
-            ) : (
-              <div className="w-full aspect-video bg-black rounded-xl flex items-center justify-center text-gray-400 font-medium">
-                Select an episode to start watching
-              </div>
-            )}
+            <MemoizedVideoPlayer tvId={tvId} title={tv.name} key={tvId} />
 
           
           {/* Controls */}
