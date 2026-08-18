@@ -18,6 +18,7 @@ function ParentComponent() {
   const [keyboardOpen, setKeyboardOpen] = useState(false);
 
   useEffect(() => {
+    if (!auth) return;
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
@@ -31,6 +32,7 @@ function ParentComponent() {
   }, []);
 
   const handleLogout = async () => {
+    if (!auth) return;
     try {
       await signOut(auth);
     } catch (error) {

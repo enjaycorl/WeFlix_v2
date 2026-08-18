@@ -9,7 +9,7 @@ import ContentCard from './ContentCard';
 import { useWatchlist } from '../../context/WatchlistContext';
 
 const API_KEY = import.meta.env.VITE_TMDB_API;
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'https://api.themoviedb.org/3';
 const POSTER = 'https://image.tmdb.org/t/p/w500';
 
 /**
@@ -41,6 +41,7 @@ async function buildPersonalisedFeed(userId, watchlistItems, seedCount = 4) {
   // 1. Get the most recently watched items
   let cwItems = [];
   try {
+    if (!db) throw new Error('Firestore unavailable');
     const q = query(
       collection(db, 'users', userId, 'continue_watching'),
       orderBy('updatedAt', 'desc'),
@@ -101,6 +102,7 @@ export default function PersonalizedRow({ onSelect }) {
 
   // Track auth
   useEffect(() => {
+    if (!auth) return;
     return onAuthStateChanged(auth, setUser);
   }, []);
 

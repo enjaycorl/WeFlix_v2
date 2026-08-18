@@ -21,6 +21,11 @@ export default function ResetPasswordPage() {
   const mode = queryParams.get('mode');
 
   useEffect(() => {
+    if (!auth) {
+      setError('Authentication is not configured for this environment.');
+      setValidating(false);
+      return;
+    }
     if (!oobCode || mode !== 'resetPassword') {
       setError('Invalid or missing reset token. Make sure you used the exact link from your email.');
       setValidating(false);

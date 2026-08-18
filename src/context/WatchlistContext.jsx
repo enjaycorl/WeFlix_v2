@@ -44,6 +44,7 @@ export function WatchlistProvider({ children }) {
 
   // Track auth state
   useEffect(() => {
+    if (!auth) { setReady(true); return; }
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u);
       if (!u) {
@@ -69,7 +70,7 @@ export function WatchlistProvider({ children }) {
 
   // Subscribe to Firestore — confirms / corrects the localStorage cache
   useEffect(() => {
-    if (!user) return;
+    if (!user || !db) return;
 
     const ref = collection(db, 'users', user.uid, 'watchlist');
     const unsub = onSnapshot(ref, (snapshot) => {
@@ -95,7 +96,7 @@ export function WatchlistProvider({ children }) {
   }, [user]);
 
   const toggleWatchlist = useCallback(async (item, onNeedAuth) => {
-    if (!user) {
+    if (!user || !db) {
       onNeedAuth?.();
       return;
     }

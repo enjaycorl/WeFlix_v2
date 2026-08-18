@@ -23,6 +23,7 @@ export default function ContinueWatchingRow({ onSelect, accent }) {
 
   // Track auth
   useEffect(() => {
+    if (!auth) return;
     return onAuthStateChanged(auth, (u) => {
       setUser(u);
       if (!u) {
@@ -34,7 +35,7 @@ export default function ContinueWatchingRow({ onSelect, accent }) {
 
   // Sync from Firestore
   useEffect(() => {
-    if (!user) return;
+    if (!user || !db) return;
     const q = query(
       collection(db, 'users', user.uid, 'continue_watching'),
       orderBy('updatedAt', 'desc'),

@@ -3,7 +3,7 @@ import { db } from '../firebase';
 
 // Helper to save current movie/show to user's continue_watching list in Firestore
 export const saveToContinueWatching = async (userUid, item) => {
-  if (!userUid || !item || !item.id) return;
+  if (!userUid || !item || !item.id || !db) return;
 
   try {
     const ref = doc(db, 'users', userUid, 'continue_watching', String(item.id));
@@ -29,7 +29,7 @@ export const saveToContinueWatching = async (userUid, item) => {
 };
 
 export const removeFromContinueWatching = async (userUid, id) => {
-  if (!userUid || !id) return;
+  if (!userUid || !id || !db) return;
   try {
     const ref = doc(db, 'users', userUid, 'continue_watching', String(id));
     await deleteDoc(ref);

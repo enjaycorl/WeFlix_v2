@@ -30,6 +30,8 @@ const FIREBASE_ERRORS = {
   'auth/user-disabled':               'This account has been disabled. Contact support.',
 };
 
+const AUTH_UNAVAILABLE = 'Sign-in is unavailable because Firebase is not configured in this environment.';
+
 const getFirebaseError = (err) => {
   const code = err?.code || '';
   return FIREBASE_ERRORS[code] || 'Something went wrong. Please try again.';
@@ -37,6 +39,7 @@ const getFirebaseError = (err) => {
 
 // Upsert user profile in Firestore (merge so existing data is not overwritten)
 const saveUserToFirestore = async (user) => {
+  if (!db) return;
   const ref = doc(db, 'users', user.uid);
   await setDoc(ref, {
     uid: user.uid,
@@ -112,6 +115,7 @@ export default function AuthModal({ isOpen, onClose }) {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     if (!resetEmail.trim()) return;
+    if (!auth) { setError(AUTH_UNAVAILABLE); return; }
     setLoading(true);
     setError('');
     try {
@@ -127,6 +131,7 @@ export default function AuthModal({ isOpen, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    if (!auth) { setError(AUTH_UNAVAILABLE); return; }
     setLoading(true);
 
     try {
@@ -180,6 +185,7 @@ export default function AuthModal({ isOpen, onClose }) {
 
   const handleGoogleSignIn = async () => {
     setError('');
+    if (!auth || !googleProvider) { setError(AUTH_UNAVAILABLE); return; }
     setLoading(true);
     try {
       const result = await signInWithPopup(auth, googleProvider);

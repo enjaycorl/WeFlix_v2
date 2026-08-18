@@ -19,6 +19,12 @@ export default function EmailVerificationPage() {
     const oobCode = queryParams.get('oobCode');
     const mode = queryParams.get('mode');
 
+    if (!auth) {
+      setError('Authentication is not configured for this environment.');
+      setLoading(false);
+      return;
+    }
+
     if (!oobCode || mode !== 'verifyEmail') {
       setError('Invalid or missing verification token. Make sure you used the exact link from your email.');
       setLoading(false);
@@ -44,7 +50,7 @@ export default function EmailVerificationPage() {
         if (auth.currentUser) {
           await auth.currentUser.reload();
           const u = auth.currentUser;
-          if (u.emailVerified) {
+          if (u.emailVerified && db) {
             const ref = doc(db, 'users', u.uid);
             await setDoc(ref, { emailVerified: true }, { merge: true });
           }
