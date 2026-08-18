@@ -5,7 +5,8 @@ import {
   BiHomeAlt,
   BiMoviePlay,
   BiTv,
-  BiBookmark
+  BiBookmark,
+  BiInfoCircle
 } from 'react-icons/bi';
 import { FaPlay, FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
 import { GENRES, SPECIAL_CATEGORIES } from './tmdb';
@@ -18,6 +19,7 @@ const NAV_ITEMS = [
   { id: 'movies', icon: BiMoviePlay, action: 'navigate', label: 'Movies' },
   { id: 'series', icon: BiTv, action: 'navigate', label: 'TV Shows' },
   { id: 'watchlist', icon: BiBookmark, action: 'navigate', label: 'Watchlist' },
+  { id: 'about', icon: BiInfoCircle, action: 'navigate', label: 'About' },
 ];
 
 // Read cached auth flag from localStorage for instant render
@@ -63,7 +65,7 @@ function Sidebar({ activePage, onNavigate, selectedGenreId, onGenreSelect, onOpe
       group fixed top-0 left-0 h-full z-50
       hidden md:flex flex-col
       w-[84px] hover:w-[260px]
-      bg-gray-900/95 backdrop-blur-xl
+      bg-plum-900/95 backdrop-blur-xl
       border-r border-white/10
       shadow-2xl shadow-black/30
       overflow-hidden
@@ -71,16 +73,16 @@ function Sidebar({ activePage, onNavigate, selectedGenreId, onGenreSelect, onOpe
       select-none
     ">
 
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-red-500/10 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-brand-500/10 to-transparent pointer-events-none" />
 
       {/* Logo */}
       <button onClick={() => onNavigate('home')} className="relative flex items-center gap-4 px-[18px] pt-8 pb-8 shrink-0 text-left hover:opacity-90 transition-opacity">
-        <div className="flex items-center justify-center w-[48px] h-[48px] rounded-2xl bg-gradient-to-br from-red-500 to-red-700 shadow-lg shadow-red-900/40 ring-1 ring-white/10 shrink-0">
+        <div className="flex items-center justify-center w-[48px] h-[48px] rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-lg shadow-brand-700/40 ring-1 ring-white/10 shrink-0">
           <FaPlay className="text-white text-[15px] ml-0.5" />
         </div>
         <div className="flex flex-col leading-tight whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-100">
-          <span className="text-white font-black text-[20px] tracking-tight">WeFlix</span>
-          <span className="text-red-400/70 text-[10px] font-semibold tracking-[0.22em] uppercase mt-0.5">Streaming</span>
+          <span className="text-white font-black text-[20px] tracking-tight">Pir<span className="text-brand-500">TV</span></span>
+          <span className="text-brand-400/70 text-[10px] font-semibold tracking-[0.22em] uppercase mt-0.5">by Opiar</span>
         </div>
       </button>
 
@@ -105,12 +107,12 @@ function Sidebar({ activePage, onNavigate, selectedGenreId, onGenreSelect, onOpe
                 w-full text-[14px] font-medium whitespace-nowrap
                 border-2 transition-colors duration-200 focus:outline-none
                 ${isActive
-                  ? 'border-red-500/35 bg-red-500/15 text-white shadow-sm shadow-red-950/30'
+                  ? 'border-brand-500/35 bg-brand-500/15 text-white shadow-sm shadow-brand-950/30'
                   : 'border-transparent text-gray-400 hover:text-white hover:bg-white/5 hover:border-transparent'
                 }
               `}
             >
-              <Icon className={`text-[24px] shrink-0 transition-colors duration-200 ${isActive ? 'text-red-400' : ''}`} />
+              <Icon className={`text-[24px] shrink-0 transition-colors duration-200 ${isActive ? 'text-brand-400' : ''}`} />
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-75">
                 {label}
               </span>
@@ -144,14 +146,14 @@ function Sidebar({ activePage, onNavigate, selectedGenreId, onGenreSelect, onOpe
                       w-full text-[13px] font-medium whitespace-nowrap
                       border-2 transition-colors duration-200 focus:outline-none text-left
                       ${isActiveGenre
-                        ? 'border-red-500/30 bg-red-500/15 text-white'
+                        ? 'border-brand-500/30 bg-brand-500/15 text-white'
                         : 'border-transparent text-gray-500 hover:text-gray-200 hover:bg-white/5 hover:border-transparent'
                       }
                     `}
                   >
                     <span className={`
                       w-2 h-2 rounded-full shrink-0 transition-all duration-200
-                      ${isActiveGenre ? 'bg-red-400' : 'bg-gray-700'}
+                      ${isActiveGenre ? 'bg-brand-400' : 'bg-plum-600'}
                     `} />
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-75">
                       {genre.name}
@@ -168,7 +170,7 @@ function Sidebar({ activePage, onNavigate, selectedGenreId, onGenreSelect, onOpe
       {!showCategories && <div className="h-6 shrink-0" />}
 
       {/* User profile / Logout */}
-      <div className="mt-auto pt-4 pb-6 px-[10px] shrink-0 border-t border-white/5 relative z-10 bg-gray-900/95">
+      <div className="mt-auto pt-4 pb-6 px-[10px] shrink-0 border-t border-white/5 relative z-10 bg-plum-900/95">
         {user ? (
           <button
             onClick={handleLogout}

@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { toDetailPath } from './urlUtils';
+import { LANDING_SEEN_KEY } from './LandingPage';
 import HeroBanner from './HeroBanner';
 import TrendingRow from './TrendingRow';
 import ContinueWatchingRow from './ContinueWatchingRow';
@@ -18,6 +20,17 @@ const SectionDivider = ({ label }) => (
 export default function HomePage() {
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Show the welcome screen on first launch only.
+  useEffect(() => {
+    let seen = true;
+    try {
+      seen = !!localStorage.getItem(LANDING_SEEN_KEY);
+    } catch {
+      seen = true;
+    }
+    if (!seen) navigate('/welcome', { replace: true });
+  }, [navigate]);
 
   const handleSelect = (item, type) => {
     const mediaType = item.media_type ?? type;
@@ -42,16 +55,16 @@ export default function HomePage() {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-[#0a0c12] min-h-screen"
+      className="bg-plum-900 min-h-screen"
     >
       <SEO
-        title="WeFlix — Stream Movies & TV Shows"
-        description="Watch trending movies and TV shows for free. Browse by genre, discover new releases, and stream instantly on WeFlix — powered by TMDB."
+        title="PirTV — Unlimited Movies & TV Series"
+        description="Watch unlimited movies and TV series for free on PirTV by Opiar. Browse trending titles, popular series, and recommendations — watch anytime, anywhere."
         noSuffix
       />
       
-      {/* ── Visually Hidden H1 for SEO (Brand Keyword 'WeFlix') ── */}
-      <h1 className="sr-only">WeFlix - Free Movie & TV Show Streaming Platform</h1>
+      {/* ── Visually Hidden H1 for SEO (Brand Keyword 'PirTV') ── */}
+      <h1 className="sr-only">PirTV by Opiar - Free Movie & TV Series Streaming App</h1>
 
       <HeroBanner />
 
@@ -61,50 +74,49 @@ export default function HomePage() {
 
         {/* ── Movies ── */}
         <TrendingRow
-          title="Trending Movies"
+          title="Trending"
           type="movie"
           variant="trending"
-          accent="#ef4444"
+          accent="#F5842A"
           onSelect={handleSelect}
           onSeeAll={goMovies}
         />
         <TrendingRow
-          title="Top 10 Movies This Week"
+          title="Latest Movies"
           type="movie"
           variant="popular"
-          showRank
           originalLanguage={['en', 'zh', 'ko', 'ja']}
-          accent="#ef4444"
+          accent="#F5842A"
           onSelect={handleSelect}
           onSeeAll={goMovies}
         />
         <TrendingRow
-          title="Now Playing in Theaters"
+          title="Now Playing"
           type="movie"
           variant="now_playing"
-          accent="#f59e0b"
+          accent="#FB9E4B"
           onSelect={handleSelect}
           onSeeAll={goMovies}
         />
 
-        <SectionDivider label="TV Shows" />
+        <SectionDivider label="TV Series" />
 
         {/* ── TV ── */}
         <TrendingRow
-          title="Asian TV Shows"
+          title="Popular Series"
           type="tv"
-          variant="popular"
-          originalLanguage={['ko', 'ja', 'zh']}
-          sinceYear={2020}
-          accent="#f97316"
+          variant="trending"
+          accent="#8b5cf6"
           onSelect={handleSelect}
           onSeeAll={goSeries}
         />
         <TrendingRow
-          title="Trending TV Shows"
+          title="Asian TV Series"
           type="tv"
-          variant="trending"
-          accent="#8b5cf6"
+          variant="popular"
+          originalLanguage={['ko', 'ja', 'zh']}
+          sinceYear={2020}
+          accent="#a855f7"
           onSelect={handleSelect}
           onSeeAll={goSeries}
         />

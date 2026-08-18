@@ -65,7 +65,7 @@ const ContentCard = memo(({
   const src = imageError ? placeholderImage : poster;
   const year = releaseDate ? new Date(releaseDate).getFullYear() : null;
   const ratingNum = rating ? Math.round(rating * 10) : null;
-  const ratingColor = rating >= 7 ? 'text-green-400' : rating >= 5 ? 'text-yellow-400' : 'text-red-400';
+  const ratingColor = rating >= 7 ? 'text-green-400' : rating >= 5 ? 'text-yellow-400' : 'text-brand-400';
   const showWatchlistBtn = !!mediaId;
 
   // ── Hover Trailer Logic ──
@@ -186,7 +186,7 @@ const ContentCard = memo(({
 
           {/* Media-type badge — top left */}
           {mediaType && (
-            <div className="absolute top-2 left-2 bg-red-600 text-white text-[9px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded-sm pointer-events-none">
+            <div className="absolute top-2 left-2 bg-brand-600 text-white text-[9px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded-sm pointer-events-none">
               {mediaType === 'tv' ? 'SERIES' : 'MOVIE'}
             </div>
           )}
@@ -194,7 +194,7 @@ const ContentCard = memo(({
           {/* Hover overlay — Play + Watchlist */}
           <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-3">
             {/* Play */}
-            <div className="w-12 h-12 rounded-full bg-red-600 shadow-lg shadow-red-700/50 flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform duration-200">
+            <div className="w-12 h-12 rounded-full bg-brand-600 shadow-lg shadow-brand-700/50 flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform duration-200">
               <FaPlay className="text-white text-sm ml-0.5" />
             </div>
 
@@ -207,7 +207,7 @@ const ContentCard = memo(({
                   transform scale-75 group-hover:scale-100 transition-all duration-200
                   shadow-lg
                   ${inWatchlist
-                    ? (isWatchlistPage ? 'bg-black/60 hover:bg-red-600/90 border border-white/20 hover:border-red-500' : 'bg-red-600 shadow-red-700/50')
+                    ? (isWatchlistPage ? 'bg-black/60 hover:bg-brand-600/90 border border-white/20 hover:border-brand-500' : 'bg-brand-600 shadow-brand-700/50')
                     : 'bg-white/25 backdrop-blur-sm border border-white/30 hover:bg-white/35'
                   }`}
               >

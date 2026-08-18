@@ -35,7 +35,7 @@ const VideoPlayer = ({ tvId, season = 1, episode = 1 }) => {
                         onClick={() => setSourceIdx(idx)}
                         className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                             sourceIdx === idx 
-                                ? 'bg-red-600 text-white shadow-md' 
+                                ? 'bg-brand-600 text-white shadow-md' 
                                 : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
                         }`}
                     >

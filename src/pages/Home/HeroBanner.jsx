@@ -73,10 +73,10 @@ export default function HeroBanner() {
 
   if (loading) {
     return (
-      <div className="relative w-full h-[72vh] md:h-screen overflow-hidden bg-[#0a0c12]">
+      <div className="relative w-full h-[72vh] md:h-screen overflow-hidden bg-[#140d1f]">
         {/* Ambient backdrop shimmer */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0c12] via-[#121826] to-[#0a0c12] opacity-70 animate-pulse" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c12] via-transparent to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#140d1f] via-[#241436] to-[#140d1f] opacity-70 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#140d1f] via-transparent to-black/35" />
 
         {/* Skeleton content block */}
         <div className="relative z-10 h-full flex flex-col justify-end md:justify-center px-6 md:px-14 pb-20 md:pb-16 max-w-2xl">
@@ -136,7 +136,7 @@ export default function HeroBanner() {
         />
         {/* Cinematic overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c12] via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#140d1f] via-transparent to-black/30" />
         <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-black/60 to-transparent" />
       </div>
 
@@ -145,8 +145,8 @@ export default function HeroBanner() {
 
         {/* Live badge + type label */}
         <div className="flex items-center gap-3 mb-4">
-          <span className="inline-flex items-center gap-1.5 bg-red-600/20 border border-red-500/40 text-red-400 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+          <span className="inline-flex items-center gap-1.5 bg-brand-500/20 border border-brand-500/40 text-brand-400 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
             Trending
           </span>
           <span className="text-gray-400 text-[11px] font-semibold uppercase tracking-widest">
@@ -196,7 +196,7 @@ export default function HeroBanner() {
         <div className="flex items-center gap-3">
           <button
             onClick={handlePlay}
-            className="flex items-center gap-2.5 bg-red-600 hover:bg-red-500 text-white font-bold px-7 py-3 rounded-full transition-all duration-200 hover:scale-105 shadow-lg shadow-red-700/40 text-sm"
+            className="flex items-center gap-2.5 bg-brand-500 hover:bg-brand-400 text-white font-bold px-7 py-3 rounded-full transition-all duration-200 hover:scale-105 shadow-lg shadow-brand-700/40 text-sm"
           >
             <FaPlay className="text-xs" />
             Play Now
@@ -227,7 +227,7 @@ export default function HeroBanner() {
               {i === active ? (
                 <span
                   key={barKey}
-                  className="absolute inset-y-0 left-0 rounded-full bg-red-500"
+                  className="absolute inset-y-0 left-0 rounded-full bg-brand-500"
                   style={{ animation: `fillBar ${INTERVAL}ms linear forwards` }}
                 />
               ) : (
@@ -247,7 +247,7 @@ export default function HeroBanner() {
               onClick={() => { if (i !== active) goTo(i); }}
               className={`relative w-[80px] h-[50px] rounded-lg overflow-hidden ring-1 transition-all duration-200 ${
                 i === active
-                  ? 'ring-red-500 scale-105 opacity-100'
+                  ? 'ring-brand-500 scale-105 opacity-100'
                   : 'ring-white/10 opacity-45 hover:opacity-75'
               }`}
             >

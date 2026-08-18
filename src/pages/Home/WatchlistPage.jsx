@@ -21,21 +21,21 @@ function WatchlistPage() {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-      className="min-h-screen bg-black text-white px-4 sm:px-8 pt-0 md:pt-10 pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-16"
+      className="min-h-screen bg-plum-900 text-white px-4 sm:px-8 pt-0 md:pt-10 pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-16"
     >
-      <SEO title="My Watchlist - WeFlix" description="View your saved movies and TV shows." />
+      <SEO title="My Watchlist - PirTV" description="View your saved movies and TV shows." />
 
       {/* Mobile-aware sticky top bar */}
-      <div className="sticky top-0 z-40 -mx-4 sm:-mx-8 px-4 sm:px-8 pt-[calc(env(safe-area-inset-top)+0.75rem)] md:pt-0 pb-3 md:pb-0 backdrop-blur-md bg-black/80 md:bg-transparent border-b border-white/[0.06] md:border-none mb-4 md:mb-0">
+      <div className="sticky top-0 z-40 -mx-4 sm:-mx-8 px-4 sm:px-8 pt-[calc(env(safe-area-inset-top)+0.75rem)] md:pt-0 pb-3 md:pb-0 backdrop-blur-md bg-plum-900/80 md:bg-transparent border-b border-white/[0.06] md:border-none mb-4 md:mb-0">
         <div className="flex items-center gap-3 md:hidden">
-          <span className="w-1.5 h-8 bg-red-600 rounded-full inline-block shadow-[0_0_10px_rgba(220,38,38,0.5)]" />
+          <span className="w-1.5 h-8 bg-brand-600 rounded-full inline-block shadow-[0_0_10px_rgba(220,38,38,0.5)]" />
           <h1 className="text-2xl font-bold tracking-tight">My Watchlist</h1>
         </div>
       </div>
 
       {/* Desktop heading */}
       <div className="hidden md:flex items-center gap-3 mb-6">
-        <span className="w-1.5 h-8 bg-red-600 rounded-full inline-block shadow-[0_0_10px_rgba(220,38,38,0.5)]" />
+        <span className="w-1.5 h-8 bg-brand-600 rounded-full inline-block shadow-[0_0_10px_rgba(220,38,38,0.5)]" />
         <h1 className="text-3xl font-bold tracking-tight">My Watchlist</h1>
       </div>
 
@@ -50,10 +50,10 @@ function WatchlistPage() {
           >
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <div className="w-16 h-16 rounded-2xl bg-red-600/10 border border-red-500/20 flex items-center justify-center">
-                  <FaBookmark className="text-red-500 text-xl" />
+                <div className="w-16 h-16 rounded-2xl bg-brand-600/10 border border-brand-500/20 flex items-center justify-center">
+                  <FaBookmark className="text-brand-500 text-xl" />
                 </div>
-                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-red-600 border-2 border-black" />
+                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-brand-600 border-2 border-black" />
               </div>
             </div>
             <h2 className="text-xl font-bold text-white mb-3 tracking-tight">Sign in to use Watchlist</h2>
@@ -62,7 +62,7 @@ function WatchlistPage() {
             </p>
             <button
               onClick={() => document.querySelector('[title="Log In"]')?.click()}
-              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-2.5 rounded-lg text-sm transition-colors shadow-lg shadow-red-600/20"
+              className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-2.5 rounded-lg text-sm transition-colors shadow-lg shadow-brand-600/20"
             >
               Sign in
             </button>
@@ -88,16 +88,16 @@ function WatchlistPage() {
           >
             {/* Horizontal rule with label */}
             <div className="flex items-center gap-4 mb-10">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent to-red-600/30" />
-              <FaBookmark className="text-red-600/60 text-[10px]" />
-              <div className="flex-1 h-px bg-gradient-to-l from-transparent to-red-600/30" />
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent to-brand-600/30" />
+              <FaBookmark className="text-brand-600/60 text-[10px]" />
+              <div className="flex-1 h-px bg-gradient-to-l from-transparent to-brand-600/30" />
             </div>
 
             <div className="text-center mb-10">
               <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">Your list is empty</h2>
               <p className="text-gray-500 text-[15px] leading-relaxed max-w-sm mx-auto">
                 Browse movies and TV shows, then hit{' '}
-                <span className="text-red-400 inline-flex items-center gap-1">
+                <span className="text-brand-400 inline-flex items-center gap-1">
                   <FaBookmark className="text-[11px]" /> Add to Watchlist
                 </span>{' '}
                 to save them here.
@@ -107,22 +107,22 @@ function WatchlistPage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={() => navigate('/movies')}
-                className="group flex items-center justify-center gap-2.5 bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 text-sm shadow-lg shadow-red-600/20"
+                className="group flex items-center justify-center gap-2.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 text-sm shadow-lg shadow-brand-600/20"
               >
                 <BiMoviePlay className="text-base" />
                 Movies
               </button>
               <button
                 onClick={() => navigate('/series')}
-                className="group flex items-center justify-center gap-2.5 border border-white/10 hover:border-red-500/30 bg-white/[0.03] hover:bg-red-500/5 text-gray-300 hover:text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 text-sm"
+                className="group flex items-center justify-center gap-2.5 border border-white/10 hover:border-brand-500/30 bg-white/[0.03] hover:bg-brand-500/5 text-gray-300 hover:text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 text-sm"
               >
-                <BiTv className="text-base text-gray-400 group-hover:text-red-400 transition-colors" />
+                <BiTv className="text-base text-gray-400 group-hover:text-brand-400 transition-colors" />
                 TV Shows
               </button>
             </div>
 
             {/* Bottom rule */}
-            <div className="mt-10 h-px bg-gradient-to-r from-transparent via-red-600/20 to-transparent" />
+            <div className="mt-10 h-px bg-gradient-to-r from-transparent via-brand-600/20 to-transparent" />
           </motion.div>
         </div>
       )}

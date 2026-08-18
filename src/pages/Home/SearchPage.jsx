@@ -101,7 +101,7 @@ function Chip({ active, onClick, children }) {
       onClick={onClick}
       className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all duration-150 whitespace-nowrap
         ${active
-          ? 'bg-red-600 border-red-500 text-white shadow-lg shadow-red-600/25'
+          ? 'bg-brand-600 border-brand-500 text-white shadow-lg shadow-brand-600/25'
           : 'bg-white/[0.05] border-white/10 text-gray-400 hover:border-white/20 hover:text-white'
         }`}
     >
@@ -117,7 +117,7 @@ function FilterSelect({ label, value, onChange, options }) {
       <select
         value={value}
         onChange={e => onChange(e.target.value)}
-        className="appearance-none w-full bg-white/[0.06] border border-white/10 text-white text-xs font-medium px-3 py-2.5 pr-8 rounded-lg focus:outline-none focus:border-red-500/60 cursor-pointer transition-colors hover:border-white/20"
+        className="appearance-none w-full bg-white/[0.06] border border-white/10 text-white text-xs font-medium px-3 py-2.5 pr-8 rounded-lg focus:outline-none focus:border-brand-500/60 cursor-pointer transition-colors hover:border-white/20"
       >
         {options.map(opt => (
           <option key={opt.value} value={opt.value} className="bg-[#141820] text-white">
@@ -126,7 +126,7 @@ function FilterSelect({ label, value, onChange, options }) {
         ))}
       </select>
       <FaChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 text-[10px] pointer-events-none" />
-      <span className="absolute -top-2 left-2 bg-[#0a0c12] px-1 text-[10px] text-gray-500 font-medium">{label}</span>
+      <span className="absolute -top-2 left-2 bg-plum-900 px-1 text-[10px] text-gray-500 font-medium">{label}</span>
     </div>
   );
 }
@@ -400,18 +400,18 @@ function SearchPage() {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-      className="min-h-screen bg-black text-white px-4 sm:px-8 pt-0 md:pt-10 pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-16"
+      className="min-h-screen bg-plum-900 text-white px-4 sm:px-8 pt-0 md:pt-10 pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-16"
     >
       <SEO
         title={debouncedQuery ? `"${debouncedQuery}" - Search Results` : 'Search & Browse Movies & TV Shows'}
         description={
           debouncedQuery
-            ? `Search results for "${debouncedQuery}" on WeFlix.`
-            : 'Search and browse movies & TV shows by genre, year, and rating on WeFlix.'
+            ? `Search results for "${debouncedQuery}" on PirTV.`
+            : 'Search and browse movies & TV series by genre, year, and rating on PirTV.'
         }
       />
       {/* Mobile-aware sticky top bar */}
-      <div className="sticky top-0 z-40 -mx-4 sm:-mx-8 px-4 sm:px-8 pt-[calc(env(safe-area-inset-top)+0.75rem)] md:pt-0 pb-3 md:pb-0 backdrop-blur-md bg-black/80 md:bg-transparent border-b border-white/[0.06] md:border-none mb-4 md:mb-0">
+      <div className="sticky top-0 z-40 -mx-4 sm:-mx-8 px-4 sm:px-8 pt-[calc(env(safe-area-inset-top)+0.75rem)] md:pt-0 pb-3 md:pb-0 backdrop-blur-md bg-plum-900/80 md:bg-transparent border-b border-white/[0.06] md:border-none mb-4 md:mb-0">
         <h1 className="text-2xl sm:text-3xl font-bold md:hidden">Search</h1>
       </div>
       <h1 className="hidden md:block text-3xl font-bold mb-6">Search</h1>
@@ -426,11 +426,11 @@ function SearchPage() {
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search movies, TV shows, genres..."
-            className="w-full bg-gray-800/60 border border-gray-700/50 text-white pl-11 pr-10 py-3.5 rounded-xl text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent placeholder-gray-500 transition-all duration-200"
+            className="w-full bg-gray-800/60 border border-gray-700/50 text-white pl-11 pr-10 py-3.5 rounded-xl text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent placeholder-gray-500 transition-all duration-200"
           />
           {showInitialLoading && (
             <div className="absolute right-10 top-1/2 -translate-y-1/2">
-              <div className="w-4 h-4 border-2 border-red-600 border-t-transparent rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-brand-600 border-t-transparent rounded-full animate-spin" />
             </div>
           )}
           {query && (
@@ -449,7 +449,7 @@ function SearchPage() {
           onClick={() => setFiltersOpen(o => !o)}
           className={`relative flex-shrink-0 flex items-center gap-2 px-4 py-3.5 rounded-xl border text-sm font-semibold transition-all duration-200
             ${filtersOpen
-              ? 'bg-red-600 border-red-500 text-white shadow-lg shadow-red-600/30'
+              ? 'bg-brand-600 border-brand-500 text-white shadow-lg shadow-brand-600/30'
               : 'bg-gray-800/60 border-gray-700/50 text-gray-300 hover:border-gray-500 hover:text-white'
             }`}
           aria-label="Toggle filters"
@@ -457,7 +457,7 @@ function SearchPage() {
           <MdOutlineTune className="text-lg" />
           <span className="hidden sm:inline">Filters</span>
           {activeFilterCount > 0 && (
-            <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center border-2 border-black">
+            <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-brand-500 text-white text-[10px] font-black flex items-center justify-center border-2 border-black">
               {activeFilterCount}
             </span>
           )}
@@ -565,7 +565,7 @@ function SearchPage() {
                 {activeFilterCount > 0 && (
                   <button
                     onClick={resetFilters}
-                    className="text-xs font-semibold text-red-400 hover:text-red-300 transition-colors flex items-center gap-1"
+                    className="text-xs font-semibold text-brand-400 hover:text-brand-300 transition-colors flex items-center gap-1"
                   >
                     <FaTimes className="text-[10px]" /> Reset all
                   </button>
@@ -576,13 +576,13 @@ function SearchPage() {
         )}
       </AnimatePresence>
 
-      {error && <p className="mt-3 text-red-500 text-sm">{error.message}</p>}
+      {error && <p className="mt-3 text-brand-500 text-sm">{error.message}</p>}
 
       {/* ── Category shortcut chips (appear when typing a genre name) ── */}
       {matchedCategories.length > 0 && (
         <section className="mt-6">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-1 h-5 bg-red-600 rounded-full inline-block" />
+            <span className="w-1 h-5 bg-brand-600 rounded-full inline-block" />
             <h2 className="text-sm font-semibold text-gray-300">Browse by Category</h2>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -590,11 +590,11 @@ function SearchPage() {
               <button
                 key={`${cat.mediaType}-${cat.id}`}
                 onClick={() => navigate(cat.path)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-white/[0.07] border border-white/10 text-gray-300 hover:bg-red-600/20 hover:border-red-500/40 hover:text-white transition-all duration-150"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-white/[0.07] border border-white/10 text-gray-300 hover:bg-brand-600/20 hover:border-brand-500/40 hover:text-white transition-all duration-150"
               >
                 {cat.mediaType === 'movie'
-                  ? <BiMoviePlay className="text-red-400 shrink-0" />
-                  : <BiTv className="text-red-400 shrink-0" />}
+                  ? <BiMoviePlay className="text-brand-400 shrink-0" />
+                  : <BiTv className="text-brand-400 shrink-0" />}
                 {cat.name}
                 <span className="text-[10px] text-gray-600 ml-0.5">
                   {cat.mediaType === 'movie' ? 'Movies' : 'TV'}
@@ -608,7 +608,7 @@ function SearchPage() {
       {/* ── Results ── */}
       <section className="mt-6">
         <div className="flex items-center gap-2 mb-1">
-          <span className="w-1 h-5 bg-red-600 rounded-full inline-block" />
+          <span className="w-1 h-5 bg-brand-600 rounded-full inline-block" />
           {sectionHeading}
         </div>
 
@@ -622,7 +622,7 @@ function SearchPage() {
           <div className="mt-12 text-center">
             <BiSliderAlt className="text-gray-700 text-5xl mx-auto mb-4" />
             <p className="text-gray-500 text-sm">No titles match your filters.</p>
-            <button onClick={resetFilters} className="mt-4 text-red-400 hover:text-red-300 text-sm font-semibold transition-colors">
+            <button onClick={resetFilters} className="mt-4 text-brand-400 hover:text-brand-300 text-sm font-semibold transition-colors">
               Clear filters
             </button>
           </div>
@@ -667,7 +667,7 @@ function SearchPage() {
 
         {showLoadingMore && (
           <div className="flex justify-center py-8">
-            <div className="w-9 h-9 border-[3px] border-red-600 border-t-transparent rounded-full animate-spin" />
+            <div className="w-9 h-9 border-[3px] border-brand-600 border-t-transparent rounded-full animate-spin" />
           </div>
         )}
       </section>

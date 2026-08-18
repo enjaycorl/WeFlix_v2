@@ -54,7 +54,7 @@ export default function CastRow({ cast }) {
     <section className="px-4 sm:px-6 md:px-12 pb-16">
       <div className="max-w-7xl mx-auto">
         <h3 className="text-xl md:text-2xl font-bold text-white mb-6 tracking-tight flex items-center gap-3">
-          <span className="w-1.5 h-6 bg-red-500 rounded-full inline-block"></span>
+          <span className="w-1.5 h-6 bg-brand-500 rounded-full inline-block"></span>
           Top Cast
         </h3>
         
@@ -93,7 +93,7 @@ export default function CastRow({ cast }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
                 {/* Person details */}
-                <h4 className="text-white text-[13px] font-bold leading-tight line-clamp-1 group-hover:text-red-400 transition-colors">
+                <h4 className="text-white text-[13px] font-bold leading-tight line-clamp-1 group-hover:text-brand-400 transition-colors">
                   {person.name}
                 </h4>
                 <p className="text-gray-500 text-[11px] mt-1 leading-snug line-clamp-2">

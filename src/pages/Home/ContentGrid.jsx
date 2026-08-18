@@ -11,7 +11,7 @@ const MAX_PAGES = 500;
 
 const ErrorWarning = () => (
   <div className="flex flex-col items-center justify-center gap-3 py-16">
-    <BiWifi className="text-red-400 w-10 h-10" />
+    <BiWifi className="text-brand-400 w-10 h-10" />
     <p className="text-gray-400 text-sm font-medium">Connection error — check your network</p>
   </div>
 );
@@ -221,7 +221,7 @@ const ContentGrid = ({ genreId, type, onSelect, sortBy = 'popularity.desc', onRe
       {isRefreshing && (
         <div className="mb-3 flex items-center justify-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.03] px-3 py-1.5">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
+            <span className="h-2 w-2 animate-pulse rounded-full bg-brand-500" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gray-400">
               Updating
             </span>
@@ -241,7 +241,7 @@ const ContentGrid = ({ genreId, type, onSelect, sortBy = 'popularity.desc', onRe
       {/* Infinite-scroll spinner */}
       {items.length > 0 && loading && (
         <div className="flex items-center justify-center py-8">
-          <div className="animate-spin rounded-full h-9 w-9 border-[3px] border-red-600 border-t-transparent" />
+          <div className="animate-spin rounded-full h-9 w-9 border-[3px] border-brand-600 border-t-transparent" />
         </div>
       )}
 

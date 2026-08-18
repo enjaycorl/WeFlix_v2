@@ -217,7 +217,7 @@ export default function TrendingRow({
           {onSeeAll && (
             <button
               onClick={onSeeAll}
-              className="flex items-center gap-1 text-gray-500 hover:text-red-400 text-xs font-semibold uppercase tracking-wider transition-colors duration-200 mr-1"
+              className="flex items-center gap-1 text-gray-500 hover:text-brand-400 text-xs font-semibold uppercase tracking-wider transition-colors duration-200 mr-1"
             >
               See All <FiArrowRight className="text-sm" />
             </button>

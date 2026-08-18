@@ -180,13 +180,13 @@ const MovieDetails = ({ movieId: movieIdProp }) => {
   );
 
   if (error) return (
-    <div className="min-h-[60vh] flex items-center justify-center p-6 bg-[#090b10]">
-      <div className="bg-red-900/10 border border-red-700/30 rounded-2xl p-8 max-w-sm w-full text-center backdrop-blur-md">
-        <p className="text-red-400 mb-6 font-medium">{error}</p>
+    <div className="min-h-[60vh] flex items-center justify-center p-6 bg-[#140d1f]">
+      <div className="bg-brand-900/10 border border-brand-700/30 rounded-2xl p-8 max-w-sm w-full text-center backdrop-blur-md">
+        <p className="text-brand-400 mb-6 font-medium">{error}</p>
         <button
           onClick={load}
           disabled={retrying}
-          className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-red-600/20"
+          className="w-full flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 disabled:opacity-50 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-brand-600/20"
         >
           <FaRedo className={retrying ? "animate-spin" : ""} />
           {retrying ? "Retrying…" : "Retry"}
@@ -207,13 +207,13 @@ const MovieDetails = ({ movieId: movieIdProp }) => {
     : overview;
 
   return (
-    <div className="min-h-screen bg-[#07080a] text-gray-200 selection:bg-red-500/30">
+    <div className="min-h-screen bg-[#140d1f] text-gray-200 selection:bg-brand-500/30">
       <SEO
-        title={`${movie.title}${year ? ` (${year})` : ''} — Watch Free on WeFlix`}
+        title={`${movie.title}${year ? ` (${year})` : ''} — Watch Free on PirTV`}
         description={
           movie.overview
-            ? `${movie.overview.slice(0, 150).trim()}… Watch ${movie.title} free on WeFlix.`
-            : `Watch ${movie.title} free on WeFlix.`
+            ? `${movie.overview.slice(0, 150).trim()}… Watch ${movie.title} free on PirTV.`
+            : `Watch ${movie.title} free on PirTV.`
         }
         image={
           movie.backdrop_path
@@ -257,8 +257,8 @@ const MovieDetails = ({ movieId: movieIdProp }) => {
             <div className="w-full h-full bg-[#111319] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-800 to-[#111319]" />
           )}
           {/* Gradients for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07080a] via-[#07080a]/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07080a]/90 via-[#07080a]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#140d1f] via-[#140d1f]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#140d1f]/90 via-[#140d1f]/50 to-transparent" />
         </div>
 
         {/* Back Button */}
@@ -289,7 +289,7 @@ const MovieDetails = ({ movieId: movieIdProp }) => {
           {/* Info */}
           <div className="flex-1 max-w-3xl pb-2">
             {movie.tagline && (
-              <p className="text-red-400 font-semibold tracking-wider text-xs md:text-sm uppercase mb-3 drop-shadow-md">
+              <p className="text-brand-400 font-semibold tracking-wider text-xs md:text-sm uppercase mb-3 drop-shadow-md">
                 {movie.tagline}
               </p>
             )}
@@ -320,11 +320,11 @@ const MovieDetails = ({ movieId: movieIdProp }) => {
                  onClick={toggleWatchlist}
                  className={`flex items-center gap-2 backdrop-blur-md text-white font-bold px-6 py-3 rounded-xl transition-all active:scale-[0.98] ${
                    inWatchlist 
-                     ? 'bg-red-600/20 hover:bg-red-600/30 border border-red-500/50' 
+                     ? 'bg-brand-600/20 hover:bg-brand-600/30 border border-brand-500/50' 
                      : 'bg-white/10 hover:bg-white/20 border border-white/10'
                  }`}
                >
-                 <FaBookmark className={inWatchlist ? "text-red-400" : ""} /> 
+                 <FaBookmark className={inWatchlist ? "text-brand-400" : ""} /> 
                  {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
                </button>
             </div>
@@ -337,7 +337,7 @@ const MovieDetails = ({ movieId: movieIdProp }) => {
                 {overview.length > 280 && (
                   <button
                     onClick={() => setShowOverview(p => !p)}
-                    className="mt-3 text-white font-semibold hover:text-red-400 transition-colors text-sm underline underline-offset-4"
+                    className="mt-3 text-white font-semibold hover:text-brand-400 transition-colors text-sm underline underline-offset-4"
                   >
                     {showOverview ? "Show Less" : "Read More"}
                   </button>
@@ -354,9 +354,9 @@ const MovieDetails = ({ movieId: movieIdProp }) => {
         {/* Video Player Container */}
         <div className="relative">
           {/* Subtle Video Player Glow Backdrop */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-red-600/30 to-blue-600/30 blur-2xl opacity-50 z-0 rounded-2xl md:rounded-[2rem]"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-brand-600/30 to-blue-600/30 blur-2xl opacity-50 z-0 rounded-2xl md:rounded-[2rem]"></div>
           
-          <div className="relative z-10 bg-[#0f1117]/80 backdrop-blur-xl border border-white/5 rounded-2xl md:rounded-[2rem] p-2 md:p-4 shadow-2xl mb-6 ring-1 ring-white/5">
+          <div className="relative z-10 bg-[#1e1433]/80 backdrop-blur-xl border border-white/5 rounded-2xl md:rounded-[2rem] p-2 md:p-4 shadow-2xl mb-6 ring-1 ring-white/5">
             <MemoizedVideoPlayer key={movieId} movieId={movieId} title={movie.title} />
           </div>
         </div>
@@ -390,7 +390,7 @@ const MovieDetails = ({ movieId: movieIdProp }) => {
         <section className="px-4 sm:px-6 md:px-12 pb-16">
           <div className="max-w-7xl mx-auto">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-6 tracking-tight flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-red-500 rounded-full inline-block"></span>
+              <span className="w-1.5 h-6 bg-brand-500 rounded-full inline-block"></span>
               More Like This
             </h3>
             
@@ -421,14 +421,14 @@ const MovieDetails = ({ movieId: movieIdProp }) => {
       )}
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#040507] border-t border-white/5">
+      <footer className="bg-[#0f0817] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs md:text-sm text-gray-500">
           <div className="flex items-center gap-2">
-            <span className="text-white font-black text-base">We<span className="text-red-500">Flix</span></span>
+            <span className="text-white font-black text-base">We<span className="text-brand-500">Flix</span></span>
             <span className="mx-2 opacity-50">|</span>
           </div>
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} WeFlix</span>
+            <span>© {new Date().getFullYear()} PirTV</span>
             <span className="mx-2 opacity-50">|</span>
             <span>
               Data by{' '}

@@ -12,11 +12,29 @@ export default {
           800: '#1f1f1f', // Slightly lighter for surfaces
           700: '#2d2d2d', // For borders or hover states
           600: '#404040', // For secondary text or icons
-          // You might want to define 500, 400, 300 etc. for text, lighter elements
-          // e.g., 300: '#d1d5db' // Light gray text
-        }
-        // Consider adding your primary/accent color here too
-        // E.g., blue: { 600: '#2563eb', ... }
+        },
+        // PirTV brand accent — warm orange
+        brand: {
+          DEFAULT: '#F5842A',
+          300: '#FCB877',
+          400: '#FB9E4B',
+          500: '#F5842A',
+          600: '#E5751C',
+          700: '#C25F12',
+          800: '#9C4C0E',
+          900: '#7A3C0C',
+          950: '#431F06',
+        },
+        // PirTV surface palette — deep plum / purple
+        plum: {
+          950: '#100a1a', // deepest background
+          900: '#160e24', // app background
+          850: '#1a1029',
+          800: '#1e1433', // raised surface
+          700: '#271a40', // cards
+          600: '#33235a', // borders / hover
+          500: '#4a3273',
+        },
       },
       aspectRatio: {
         '16/7': '16 / 7', // Custom aspect ratio

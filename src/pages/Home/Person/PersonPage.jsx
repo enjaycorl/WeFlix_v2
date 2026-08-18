@@ -74,18 +74,18 @@ export default function PersonPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#07080a] flex justify-center pt-32 p-6">
-        <div className="w-10 h-10 border-4 border-red-600 border-t-transparent rounded-full animate-spin" />
+      <div className="min-h-screen bg-[#140d1f] flex justify-center pt-32 p-6">
+        <div className="w-10 h-10 border-4 border-brand-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   if (error || !person) {
     return (
-      <div className="min-h-screen bg-[#07080a] flex items-center justify-center p-6">
-        <div className="bg-red-900/10 border border-red-700/30 rounded-2xl p-8 max-w-sm w-full text-center backdrop-blur-md">
-          <p className="text-red-400 mb-6 font-medium">{error}</p>
-          <button onClick={() => navigate(-1)} className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-red-600/20">
+      <div className="min-h-screen bg-[#140d1f] flex items-center justify-center p-6">
+        <div className="bg-brand-900/10 border border-brand-700/30 rounded-2xl p-8 max-w-sm w-full text-center backdrop-blur-md">
+          <p className="text-brand-400 mb-6 font-medium">{error}</p>
+          <button onClick={() => navigate(-1)} className="w-full flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-brand-600/20">
             Go Back
           </button>
         </div>
@@ -97,10 +97,10 @@ export default function PersonPage() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-[#07080a] text-white pt-24 pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-16"
+      className="min-h-screen bg-[#140d1f] text-white pt-24 pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-16"
     >
       <SEO 
-        title={`${person.name} — WeFlix`} 
+        title={`${person.name} — PirTV`} 
         description={person.biography || `Discover movies and TV shows starring ${person.name}.`}
         image={person.profile_path ? `https://image.tmdb.org/t/p/w780${person.profile_path}` : undefined}
       />
@@ -138,7 +138,7 @@ export default function PersonPage() {
             
             <div className="flex flex-wrap gap-4 text-sm font-semibold text-gray-400 mb-8">
               {person.known_for_department && (
-                <span className="bg-red-600/20 text-red-500 px-3 py-1 rounded-full border border-red-500/30">
+                <span className="bg-brand-600/20 text-brand-500 px-3 py-1 rounded-full border border-brand-500/30">
                   {person.known_for_department}
                 </span>
               )}
@@ -156,7 +156,7 @@ export default function PersonPage() {
 
             <div className="mb-10">
               <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                <span className="w-1.5 h-5 bg-red-500 rounded-full inline-block"></span>
+                <span className="w-1.5 h-5 bg-brand-500 rounded-full inline-block"></span>
                 Biography
               </h3>
               {person.biography ? (
@@ -177,7 +177,7 @@ export default function PersonPage() {
           <div>
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-2xl md:text-3xl font-bold flex items-center gap-3">
-                <span className="w-1.5 h-6 bg-red-500 rounded-full inline-block"></span>
+                <span className="w-1.5 h-6 bg-brand-500 rounded-full inline-block"></span>
                 Known For
               </h3>
             </div>

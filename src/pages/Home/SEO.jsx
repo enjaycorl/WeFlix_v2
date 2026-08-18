@@ -1,14 +1,14 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE_NAME = 'WeFlix';
-const SITE_URL  = import.meta.env.VITE_SITE_URL || 'https://www.weflix.app';
+const SITE_NAME = 'PirTV';
+const SITE_URL  = import.meta.env.VITE_SITE_URL || 'https://www.opiar.dev';
 const DEFAULT_IMAGE = `${SITE_URL}/weflix2.png`;
 
 /**
  * Reusable SEO component.
  *
  * Props:
- *  title        – page title (appended with " | WeFlix" unless noSuffix)
+ *  title        – page title (appended with " | PirTV" unless noSuffix)
  *  description  – meta description (max ~160 chars)
  *  image        – absolute OG image URL
  *  url          – canonical URL (defaults to current href)

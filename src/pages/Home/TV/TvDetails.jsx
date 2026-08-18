@@ -422,12 +422,12 @@ const TvDetails = ({ tvId: tvIdProp }) => {
 
   if (error) return (
     <div className="min-h-[60vh] flex items-center justify-center p-6">
-      <div className="bg-red-900/20 border border-red-700/50 rounded-2xl p-8 max-w-sm w-full text-center">
-        <p className="text-red-300 mb-6">{error}</p>
+      <div className="bg-brand-900/20 border border-brand-700/50 rounded-2xl p-8 max-w-sm w-full text-center">
+        <p className="text-brand-300 mb-6">{error}</p>
         <button
           onClick={load}
           disabled={retrying}
-          className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+          className="w-full flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 disabled:opacity-50 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
         >
           <FaRedo className={retrying ? "animate-spin" : ""} />
           {retrying ? "Retrying…" : "Retry"}
@@ -453,13 +453,13 @@ const TvDetails = ({ tvId: tvIdProp }) => {
   };
 
   return (
-    <div className="min-h-screen bg-[#07080a] text-gray-200 selection:bg-red-500/30">
+    <div className="min-h-screen bg-[#140d1f] text-gray-200 selection:bg-brand-500/30">
       <SEO
-        title={`${tv.name}${year ? ` (${year})` : ''} — Watch Free on WeFlix`}
+        title={`${tv.name}${year ? ` (${year})` : ''} — Watch Free on PirTV`}
         description={
           tv.overview
-            ? `${tv.overview.slice(0, 150).trim()}… Stream ${tv.name} free on WeFlix.`
-            : `Stream ${tv.name} free on WeFlix.`
+            ? `${tv.overview.slice(0, 150).trim()}… Stream ${tv.name} free on PirTV.`
+            : `Stream ${tv.name} free on PirTV.`
         }
         image={
           tv.backdrop_path
@@ -504,8 +504,8 @@ const TvDetails = ({ tvId: tvIdProp }) => {
             <div className="w-full h-full bg-[#111319] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-800 to-[#111319]" />
           )}
           {/* Gradients */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07080a] via-[#07080a]/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07080a]/90 via-[#07080a]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#140d1f] via-[#140d1f]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#140d1f]/90 via-[#140d1f]/50 to-transparent" />
         </div>
 
         {/* Back Button */}
@@ -536,7 +536,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
           {/* Info */}
           <div className="flex-1 max-w-3xl pb-2">
             {tv.tagline && (
-              <p className="text-red-400 font-semibold tracking-wider text-xs md:text-sm uppercase mb-3 drop-shadow-md">
+              <p className="text-brand-400 font-semibold tracking-wider text-xs md:text-sm uppercase mb-3 drop-shadow-md">
                 {tv.tagline}
               </p>
             )}
@@ -567,11 +567,11 @@ const TvDetails = ({ tvId: tvIdProp }) => {
                  onClick={toggleWatchlist}
                  className={`flex items-center gap-2 backdrop-blur-md text-white font-bold px-6 py-3 rounded-xl transition-all active:scale-[0.98] ${
                    inWatchlist 
-                     ? 'bg-red-600/20 hover:bg-red-600/30 border border-red-500/50' 
+                     ? 'bg-brand-600/20 hover:bg-brand-600/30 border border-brand-500/50' 
                      : 'bg-white/10 hover:bg-white/20 border border-white/10'
                  }`}
                >
-                 <FaBookmark className={inWatchlist ? "text-red-400" : ""} /> 
+                 <FaBookmark className={inWatchlist ? "text-brand-400" : ""} /> 
                  {inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
                </button>
             </div>
@@ -584,7 +584,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
                 {overview.length > 240 && (
                   <button
                     onClick={() => setShowOverview(p => !p)}
-                    className="mt-3 text-white font-semibold hover:text-red-400 transition-colors text-sm underline underline-offset-4"
+                    className="mt-3 text-white font-semibold hover:text-brand-400 transition-colors text-sm underline underline-offset-4"
                   >
                     {showOverview ? "Show Less" : "Read More"}
                   </button>
@@ -599,9 +599,9 @@ const TvDetails = ({ tvId: tvIdProp }) => {
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 -mt-4 md:-mt-10 mb-12">
         <div className="relative mb-6">
           {/* Subtle Video Player Glow Backdrop */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-red-600/30 to-blue-600/30 blur-2xl opacity-50 z-0 rounded-2xl md:rounded-[2rem]"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-brand-600/30 to-blue-600/30 blur-2xl opacity-50 z-0 rounded-2xl md:rounded-[2rem]"></div>
           
-          <div className="relative z-10 bg-[#0f1117]/80 backdrop-blur-xl border border-white/5 rounded-2xl md:rounded-[2rem] p-2 md:p-4 shadow-2xl ring-1 ring-white/5">
+          <div className="relative z-10 bg-[#1e1433]/80 backdrop-blur-xl border border-white/5 rounded-2xl md:rounded-[2rem] p-2 md:p-4 shadow-2xl ring-1 ring-white/5">
             {playingSeason !== null && playingEpisode !== null ? (
               <MemoizedVideoPlayer
                 tvId={tvId}
@@ -639,7 +639,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
               <button
                 onClick={() => jumpEpisode(1)}
                 disabled={activeEpisodeIndex < 0 || activeEpisodeIndex >= sortedEpisodes.length - 1}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-600/90 hover:bg-red-500 border border-red-500/50 text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 text-sm font-semibold shadow-[0_0_15px_rgba(220,38,38,0.2)]"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600/90 hover:bg-brand-500 border border-brand-500/50 text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 text-sm font-semibold shadow-[0_0_15px_rgba(220,38,38,0.2)]"
               >
                 Next
                 <FaStepForward className="text-xs" />
@@ -677,8 +677,8 @@ const TvDetails = ({ tvId: tvIdProp }) => {
             {/* Header */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 md:px-8 border-b border-white/[0.04]">
               <div className="flex items-center gap-4 min-w-0 w-full sm:w-auto">
-                <div className="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-500/5 border border-red-500/20 shrink-0">
-                  <BiTv className="text-red-400 text-lg" />
+                <div className="flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 border border-brand-500/20 shrink-0">
+                  <BiTv className="text-brand-400 text-lg" />
                 </div>
                 <div>
                   <h2 className="text-lg md:text-xl font-bold text-white mb-0.5">Episodes</h2>
@@ -696,7 +696,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
                   value={episodeQuery}
                   onChange={(e) => setEpisodeQuery(e.target.value)}
                   placeholder="Search episodes…"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 focus:bg-white/[0.05] transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500/50 focus:bg-white/[0.05] transition-all"
                 />
               </div>
             </div>
@@ -730,7 +730,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
                           setPlayingSeason(season.season_number);
                           setPlayingEpisode(defaultEpisode);
                         }}
-                        className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${isViewing ? 'bg-red-600 text-white shadow-[0_4px_14px_rgba(220,38,38,0.4)]' : 'bg-white/[0.04] text-gray-400 hover:bg-white/[0.08] hover:text-white border border-white/5'}`}
+                        className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${isViewing ? 'bg-brand-600 text-white shadow-[0_4px_14px_rgba(220,38,38,0.4)]' : 'bg-white/[0.04] text-gray-400 hover:bg-white/[0.08] hover:text-white border border-white/5'}`}
                       >
                         Season {season.season_number}
                       </button>
@@ -771,10 +771,10 @@ const TvDetails = ({ tvId: tvIdProp }) => {
                            ringColor: 'rgba(255,255,255,0.1)'
                         }}
                       >
-                        <div className={`absolute inset-0 border-2 rounded-2xl pointer-events-none z-20 ${isPlaying ? 'border-red-500' : 'border-white/5 group-hover:border-white/20'} transition-colors`}></div>
+                        <div className={`absolute inset-0 border-2 rounded-2xl pointer-events-none z-20 ${isPlaying ? 'border-brand-500' : 'border-white/5 group-hover:border-white/20'} transition-colors`}></div>
                         
                         {/* Thumbnail */}
-                        <div className="relative w-full aspect-video bg-[#0d1117] overflow-hidden">
+                        <div className="relative w-full aspect-video bg-[#1a1029] overflow-hidden">
                           {ep.still_path ? (
                             <img
                               src={`${STILL}${ep.still_path}`}
@@ -793,7 +793,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
                           </span>
 
                           {isPlaying && (
-                            <span className="absolute top-2 right-2 flex items-center gap-1.5 text-[10px] font-bold bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.5)] text-white px-2.5 py-1 rounded-full z-10">
+                            <span className="absolute top-2 right-2 flex items-center gap-1.5 text-[10px] font-bold bg-brand-600 shadow-[0_0_10px_rgba(220,38,38,0.5)] text-white px-2.5 py-1 rounded-full z-10">
                               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                               PLAYING
                             </span>
@@ -801,7 +801,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
 
                           {!isPlaying && (
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                              <div className="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-300 shadow-lg">
+                              <div className="w-12 h-12 rounded-full bg-brand-600/90 text-white flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-300 shadow-lg">
                                 <svg className="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 24 24">
                                   <path d="M8 5v14l11-7z" />
                                 </svg>
@@ -811,7 +811,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
                         </div>
 
                         {/* Info */}
-                        <div className={`px-4 py-3.5 flex-1 relative z-10 ${isPlaying ? 'bg-red-950/40' : 'bg-[#151821]'}`}>
+                        <div className={`px-4 py-3.5 flex-1 relative z-10 ${isPlaying ? 'bg-brand-950/40' : 'bg-[#151821]'}`}>
                           <p className={`text-sm font-bold line-clamp-2 leading-snug ${isPlaying ? 'text-white' : 'text-gray-300 group-hover:text-white'}`}>
                             {ep.name || `Episode ${ep.episode_number}`}
                           </p>
@@ -843,7 +843,7 @@ const TvDetails = ({ tvId: tvIdProp }) => {
         <section className="px-4 sm:px-6 md:px-12 pb-16">
           <div className="max-w-7xl mx-auto">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-6 tracking-tight flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-red-500 rounded-full inline-block"></span>
+              <span className="w-1.5 h-6 bg-brand-500 rounded-full inline-block"></span>
               More Like This
             </h3>
             
@@ -874,14 +874,14 @@ const TvDetails = ({ tvId: tvIdProp }) => {
       )}
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#040507] border-t border-white/5">
+      <footer className="bg-[#0f0817] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs md:text-sm text-gray-500">
           <div className="flex items-center gap-2">
-            <span className="text-white font-black text-base">We<span className="text-red-500">Flix</span></span>
+            <span className="text-white font-black text-base">We<span className="text-brand-500">Flix</span></span>
             <span className="mx-2 opacity-50">|</span>
           </div>
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} WeFlix</span>
+            <span>© {new Date().getFullYear()} PirTV</span>
             <span className="mx-2 opacity-50">|</span>
             <span>
               Data by{' '}

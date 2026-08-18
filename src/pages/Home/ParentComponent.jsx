@@ -44,6 +44,7 @@ function ParentComponent() {
     : location.pathname.startsWith('/series')  ? 'series'
     : location.pathname.startsWith('/search')  ? 'search'
     : location.pathname.startsWith('/watchlist') ? 'watchlist'
+    : location.pathname.startsWith('/about')   ? 'about'
     : location.pathname.startsWith('/movie/')  ? 'movies'
     : location.pathname.startsWith('/tv/')     ? 'series'
     : 'home';
@@ -149,17 +150,17 @@ function ParentComponent() {
         <Outlet />
 
         {/* Footer — home page only */}
-        {location.pathname === '/' && <footer className="bg-[#0a0c12]">
+        {location.pathname === '/' && <footer className="bg-plum-950">
           <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="max-w-5xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-gray-600">
             <div className="flex items-center gap-3">
-              <span className="text-white font-black text-sm">We<span className="text-red-500">Flix</span></span>
+              <span className="text-white font-black text-sm">Pir<span className="text-brand-500">TV</span></span>
               <span>·</span>
-              <span>Developed by <span className="text-gray-400 font-semibold">Phyo Min Thein</span></span>
+              <span>Developed by <span className="text-gray-400 font-semibold">Opiar</span></span>
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-3">
-                <span>© {new Date().getFullYear()} WeFlix</span>
+                <span>© {new Date().getFullYear()} PirTV</span>
                 <span>·</span>
                 <span>
                   Data by{' '}
@@ -175,7 +176,7 @@ function ParentComponent() {
       </div>
 
       {/* Mobile bottom navigation */}
-      <nav className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#070b14] border-t border-white/[0.08] shadow-[0_-10px_30px_rgba(0,0,0,0.55)] items-center justify-around px-2 pt-2 pb-[calc(env(safe-area-inset-bottom)+0.45rem)] ${keyboardOpen ? 'hidden' : 'flex'}`}>
+      <nav className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-plum-950 border-t border-white/[0.08] shadow-[0_-10px_30px_rgba(0,0,0,0.55)] items-center justify-around px-2 pt-2 pb-[calc(env(safe-area-inset-bottom)+0.45rem)] ${keyboardOpen ? 'hidden' : 'flex'}`}>
         {[
           { id: 'home',   icon: BiHomeAlt,   label: 'Home'    },
           { id: 'movies', icon: BiMoviePlay, label: 'Movies'  },
@@ -189,7 +190,7 @@ function ParentComponent() {
               key={id}
               onClick={() => handleNavigation(id)}
               className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors ${
-                isActive ? 'text-red-400' : 'text-gray-500 hover:text-gray-300'
+                isActive ? 'text-brand-400' : 'text-gray-500 hover:text-gray-300'
               }`}
             >
               <Icon className="text-2xl" />

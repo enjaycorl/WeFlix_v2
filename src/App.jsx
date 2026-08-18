@@ -13,13 +13,19 @@ import ResetPasswordPage from './pages/Home/ResetPasswordPage';
 import EmailVerificationPage from './pages/Home/EmailVerificationPage';
 import PersonPage from './pages/Home/Person/PersonPage';
 import AuthActionPage from './pages/Home/AuthActionPage';
+import LandingPage from './pages/Home/LandingPage';
+import AboutPage from './pages/Home/AboutPage';
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Full-screen welcome / landing (no app shell) */}
+        <Route path="/welcome" element={<LandingPage />} />
+
         <Route element={<ParentComponent />}>
           <Route index element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/movies" element={<Movie />} />
           <Route path="/movies/:genreSlug" element={<Movie />} />
           <Route path="/movies/:genreSlug/:sortSlug" element={<Movie />} />

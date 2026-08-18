@@ -1,11 +1,11 @@
 {
-  "name": "WeFlix",
-  "short_name": "WeFlix",
-  "description": "Stream Movies & TV Shows Free",
+  "name": "PirTV — Unlimited Movies & TV Series",
+  "short_name": "PirTV",
+  "description": "Unlimited Movies & TV Series — Watch Anytime, Anywhere. By Opiar.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#100a1a",
+  "theme_color": "#F5842A",
   "icons": [
     {
       "src": "/weflix.svg",
