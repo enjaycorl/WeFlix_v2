@@ -73,10 +73,10 @@ export default function HeroBanner() {
 
   if (loading) {
     return (
-      <div className="relative w-full h-[72vh] md:h-screen overflow-hidden bg-[#140d1f]">
+      <div className="relative w-full h-[72vh] md:h-screen overflow-hidden bg-plum-950">
         {/* Ambient backdrop shimmer */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#140d1f] via-[#241436] to-[#140d1f] opacity-70 animate-pulse" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#140d1f] via-transparent to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-plum-950 via-plum-700 to-plum-950 opacity-70 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-t from-plum-950 via-transparent to-plum-950/40" />
 
         {/* Skeleton content block */}
         <div className="relative z-10 h-full flex flex-col justify-end md:justify-center px-6 md:px-14 pb-20 md:pb-16 max-w-2xl">
@@ -124,7 +124,7 @@ export default function HeroBanner() {
   const handlePlay = () => navigate(toDetailPath(isTV ? 'tv' : 'movie', item.id, title));
 
   return (
-    <div className="relative w-full h-[72vh] md:h-screen overflow-hidden bg-black select-none">
+    <div className="relative w-full h-[72vh] md:h-screen overflow-hidden bg-plum-950 select-none">
 
       {/* ── Backdrop ─────────────────────────── */}
       <div className={`absolute inset-0 transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}>
@@ -134,10 +134,10 @@ export default function HeroBanner() {
           loading="lazy"
           className="w-full h-full object-cover object-center"
         />
-        {/* Cinematic overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#140d1f] via-transparent to-black/30" />
-        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-black/60 to-transparent" />
+        {/* Cinematic overlays — plum-toned so the hero melts into the page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-plum-950 via-plum-950/75 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-plum-900 via-plum-950/20 to-plum-950/45" />
+        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-plum-950/70 to-transparent" />
       </div>
 
       {/* ── Content ──────────────────────────── */}
@@ -177,7 +177,7 @@ export default function HeroBanner() {
           {genres.length > 0 && (
             <div className="flex flex-wrap gap-1.5">
               {genres.map(g => (
-                <span key={g} className="text-[11px] font-semibold text-gray-300 bg-white/[0.09] border border-white/[0.12] px-2.5 py-0.5 rounded-full">
+                <span key={g} className="text-[11px] font-semibold text-gray-300 bg-plum-700/70 border border-plum-600 px-2.5 py-0.5 rounded-full">
                   {g}
                 </span>
               ))}
@@ -203,7 +203,7 @@ export default function HeroBanner() {
           </button>
           <button
             onClick={handlePlay}
-            className="flex items-center gap-2 bg-white/[0.1] hover:bg-white/[0.18] backdrop-blur border border-white/[0.15] text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 text-sm"
+            className="flex items-center gap-2 bg-plum-700/60 hover:bg-plum-600/70 backdrop-blur border border-plum-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 text-sm"
           >
             <FaInfoCircle className="text-sm" />
             <span className="hidden sm:inline">More Info</span>
@@ -223,7 +223,7 @@ export default function HeroBanner() {
               className="relative overflow-hidden rounded-full transition-all duration-300"
               style={{ width: i === active ? 28 : 8, height: 8 }}
             >
-              <span className="absolute inset-0 rounded-full bg-gray-600/50" />
+              <span className="absolute inset-0 rounded-full bg-plum-600/70" />
               {i === active ? (
                 <span
                   key={barKey}
@@ -231,7 +231,7 @@ export default function HeroBanner() {
                   style={{ animation: `fillBar ${INTERVAL}ms linear forwards` }}
                 />
               ) : (
-                <span className="absolute inset-0 rounded-full bg-gray-500/50 hover:bg-gray-400/60 transition-colors" />
+                <span className="absolute inset-0 rounded-full bg-plum-500/70 hover:bg-brand-700/70 transition-colors" />
               )}
             </button>
           ))}
@@ -248,7 +248,7 @@ export default function HeroBanner() {
               className={`relative w-[80px] h-[50px] rounded-lg overflow-hidden ring-1 transition-all duration-200 ${
                 i === active
                   ? 'ring-brand-500 scale-105 opacity-100'
-                  : 'ring-white/10 opacity-45 hover:opacity-75'
+                  : 'ring-plum-600 opacity-45 hover:opacity-75'
               }`}
             >
               <img src={`${BACKDROP_THUMB}${it.backdrop_path}`} loading="lazy" alt="" className="w-full h-full object-cover" />

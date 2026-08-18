@@ -10,10 +10,13 @@ import PersonalizedRow from './PersonalizedRow';
 import SEO from './SEO';
 
 const SectionDivider = ({ label }) => (
-  <div className="flex items-center gap-4 px-4 sm:px-6 mb-8 mt-4">
-    <div className="flex-1 h-px bg-white/[0.05]" />
-    <span className="text-gray-600 text-[11px] font-bold uppercase tracking-[0.25em]">{label}</span>
-    <div className="flex-1 h-px bg-white/[0.05]" />
+  <div className="flex items-center gap-4 px-4 sm:px-6 mb-8 mt-6">
+    <div className="flex-1 h-px bg-gradient-to-r from-transparent to-plum-600" />
+    <span className="flex items-center gap-2 text-brand-300 text-[11px] font-bold uppercase tracking-[0.25em]">
+      <span className="w-1 h-1 rounded-full bg-brand-500" />
+      {label}
+    </span>
+    <div className="flex-1 h-px bg-gradient-to-l from-transparent to-plum-600" />
   </div>
 );
 
@@ -72,6 +75,8 @@ export default function HomePage() {
         <ContinueWatchingRow onSelect={handleSelect} />
         <PersonalizedRow onSelect={handleSelect} />
 
+        <SectionDivider label="Movies" />
+
         {/* ── Movies ── */}
         <TrendingRow
           title="Trending"
@@ -106,7 +111,7 @@ export default function HomePage() {
           title="Popular Series"
           type="tv"
           variant="trending"
-          accent="#8b5cf6"
+          accent="#FB9E4B"
           onSelect={handleSelect}
           onSeeAll={goSeries}
         />
@@ -116,7 +121,7 @@ export default function HomePage() {
           variant="popular"
           originalLanguage={['ko', 'ja', 'zh']}
           sinceYear={2020}
-          accent="#a855f7"
+          accent="#FCB877"
           onSelect={handleSelect}
           onSeeAll={goSeries}
         />
@@ -125,7 +130,7 @@ export default function HomePage() {
           type="tv"
           variant="trending"
           showRank
-          accent="#8b5cf6"
+          accent="#F5842A"
           onSelect={handleSelect}
           onSeeAll={goSeries}
         />
